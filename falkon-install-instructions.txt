@@ -1,0 +1,8 @@
+Follow this link to Falkon library documentation:
+https://github.com/FalkonML/falkon
+
+Install falkon using one of the wheels (https://falkon.dibris.unige.it/):
+# e.g., torch 2.2.0 + CUDA 12.1
+>>> pip install falkon -f https://falkon.dibris.unige.it/torch-2.2.0_cu121.html
+
+Make sure the torch and cuda drive version match the ones in the wheel!
