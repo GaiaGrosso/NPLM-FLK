@@ -61,6 +61,10 @@ def trainer(X,Y,flk_config):
     Xtorch=torch.from_numpy(X)
     Ytorch=torch.from_numpy(Y)
     model = LogisticFalkon(**flk_config)
+
+    if len(Ytorch.shape) == 1:
+        Ytorch = Ytorch[:, np.newaxis]
+
     model.fit(Xtorch, Ytorch)
     return model.predict(Xtorch).numpy()
 

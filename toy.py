@@ -32,15 +32,15 @@ Ntoys = args.toys
 
 folder_out = './'
 # define folder name
-NP = '%_NR%i_NB%i_NS%i_M%i_lam%s_iter%i/'%(N_ref, N_bkg, N_sig, M, str(lam), iterations)
+NP = 'NR%i_NB%i_NS%i_M%i_lam%s_iter%i/'%(N_ref, N_bkg, N_sig, M, str(lam), iterations)
 if not os.path.exists(folder_out+NP):
     os.makedirs(folder_out+NP)
     
-# read all data (write your own code for this)
+# TODO: read all data (write your own code for this)
 # note: should be more points than N_ref+N_data so you can bootstrap from it in the loop later on
 print('Load all data')
-features_SIG = # ... numpy array
-features_BKG = # ... numpy array
+features_SIG = np.random.uniform(0,1,(1000000,1))
+features_BKG = np.random.uniform(0,1,(1000000,1))
 
 # standardize using sample 0 as a reference
 print('standardize')
@@ -79,9 +79,9 @@ for i in range(Ntoys):
     if not i%20:
         plot_reco=True
         verbose=True
-        
+
     flk_config = get_logflk_config(M,flk_sigma,[lam],weight=w_ref,iter=[iterations],seed=None,cpu=False)
-    t, pred = run_toy(manifold, features, labels, weight=w_ref, seed=seed,
+    t, pred = run_toy('zeta_toy', features, labels, weight=w_ref, seed=seed,
                       flk_config=flk_config, output_path='./', plot=plot_reco,
                       verbose=verbose)
 
